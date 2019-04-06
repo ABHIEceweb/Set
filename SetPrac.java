@@ -1,17 +1,106 @@
 package com.ab.set;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 public class SetPrac {
 	public static void main(String[] args) {
 	Set<String> set=new HashSet<>();
+	//add()
+	set.add("Abhi");
 	set.add("Abhi");
 	set.add("Abhimanyu");
 	set.add("Abhishek");
 	set.add("Abhiram");
 	set.add(null);
+	set.add(null);
+	
+	//size(),contains()
+	System.out.println("size :"+set.size());
 	System.out.println(set.contains("Abhi"));
+	System.out.println(set.contains(null));
+	
+	//iteration with iterator
+	System.out.println("--------------");
+	Iterator<String> itr=set.iterator();
+	while(itr.hasNext()) {
+		String s1=itr.next();
+		System.out.println(s1);
+	}
+	
+	//iteration with for-each
+	System.out.println("--------------");
+	for(String s:set) {
+		System.out.println(s);
+	}
+	System.out.println("--------------");
+			
+				//remove()
+
+	System.out.println(set.remove("Abhi"));
+	System.out.println(set);
+	System.out.println("--------------");
+	List<String> list=new ArrayList<>();
+	
+						//addAll(Collection c)
+	list.addAll(set);
+	list.addAll(set);
+	list.add("hello");
+	System.out.println(list);
+	set.addAll(list);
+	
+						//retainAll(Collection c) 
+	set.retainAll(list);
+	System.out.println("--------------");
+	
+	for (String str : set) {
+		System.out.println(str);
+		
+	}
+	System.out.println(set.containsAll(list));
+	List<String> list1=new ArrayList<>();
+	list1.add("hi");
+	list1.add("ghy");
+	set.addAll(list1);
+	System.out.println(set);
+	set.removeAll(list1);
+	System.out.println(set);
+	Object[] arr=set.toArray();
+	System.out.println("--------------");
+	for(Object str:arr) {
+		System.out.println(str);
+	}
+	System.out.println("--------------");
+	String[] sArr=new String[1];
+	sArr=set.toArray(sArr);
+	for(String str:sArr) {
+		System.out.println(str);
+	}
+	System.out.println("--------------");
+	System.out.println("size:"+set.size());
+	System.out.println("clear: ");set.clear();
+	System.out.println("size : "+set.size());
+	System.out.println("IsEmpty:"+set.isEmpty());
+	
+//Retain method
+	Set<Integer> intNo=new HashSet<>();
+	intNo.add(12);
+	intNo.add(15);						//only that value is stored who present in both collection
+	intNo.add(18);
+	intNo.add(189);
+	
+	Set<Integer> intN2=new HashSet<>();
+	intN2.add(12);
+	intN2.add(19);
+	intN2.add(14);
+	intN2.add(1876);
+	
+	intNo.retainAll(intN2);
+	System.out.println(intNo);
+	
 	}
 	
 	
